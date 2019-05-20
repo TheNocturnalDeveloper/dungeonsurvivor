@@ -1,0 +1,9 @@
+﻿.border-1 {
+    border-width: 8px !important;
+}
+
+
+#product-info div {
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,14 @@
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\bin\Debug\netcoreapp2.2\Logic.deps.json
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\bin\Debug\netcoreapp2.2\Logic.dll
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\bin\Debug\netcoreapp2.2\Logic.pdb
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\bin\Debug\netcoreapp2.2\DAL.dll
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\bin\Debug\netcoreapp2.2\Interfaces.dll
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\bin\Debug\netcoreapp2.2\DAL.pdb
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\bin\Debug\netcoreapp2.2\Interfaces.pdb
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\obj\Debug\netcoreapp2.2\Logic.csprojAssemblyReference.cache
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\obj\Debug\netcoreapp2.2\Logic.csproj.CoreCompileInputs.cache
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\obj\Debug\netcoreapp2.2\Logic.AssemblyInfoInputs.cache
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\obj\Debug\netcoreapp2.2\Logic.AssemblyInfo.cs
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\obj\Debug\netcoreapp2.2\Logic.csproj.CopyComplete
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\obj\Debug\netcoreapp2.2\Logic.dll
+C:\Users\jake\Documents\Visual Studio 2017\Projects\DungeonSurvivor\Logic\obj\Debug\netcoreapp2.2\Logic.pdb
