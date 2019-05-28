@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace DungeonSurvivor.Controllers
 {
@@ -40,13 +41,13 @@ namespace DungeonSurvivor.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("Login")]
-        public async System.Threading.Tasks.Task<IActionResult> Login(LoginModel user)
+        public async Task<IActionResult> Login(LoginModel user)
         {
             var authUser = logic.getUserByCredentials(user.username, user.password);
 
             if (authUser != null)
             {
-                var claims = new List<Claim>
+                var claims = new List<Claim>    
                 {
 
                     new Claim("username", authUser.username),
@@ -94,7 +95,7 @@ namespace DungeonSurvivor.Controllers
 
         [HttpGet]
         [Route("Logout")]
-        public async System.Threading.Tasks.Task<IActionResult> Logout()
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction(controllerName: "Home", actionName: "Index");
