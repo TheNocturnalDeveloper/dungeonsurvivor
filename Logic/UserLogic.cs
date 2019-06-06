@@ -8,11 +8,11 @@ namespace Logic
 {
     public class UserLogic
     {
-        private UserRepository repository { get; }
+        private IUserContext context { get; }
 
         public UserLogic(IUserContext context)
         {
-            repository = new UserRepository(context);
+            this.context = context;
             
         }
 
@@ -23,19 +23,19 @@ namespace Logic
 
         public void removeUser(IUser user)
         {
-            repository.RemoveUser(user);
+            context.RemoveUser(user);
         }
 
 
         public IEnumerable<IUser> getAllUsers()
         {
-            return repository.GetAllUsers();
+            return context.GetAllUsers();
         }
 
 
         public IUser getUserByCredentials(string username, string password)
         {
-            return repository.GetUserByCredentials(username, password);
+            return context.GetUserByCredentials(username, password);
         }
 
 

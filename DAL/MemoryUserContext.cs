@@ -8,16 +8,16 @@ namespace DAL
 {
     public class MemoryUserContext : IUserContext
     {
-        List<UserModel> users;
+        List<UserDTO> users;
         public MemoryUserContext()
         {
-            users = new List<UserModel>();
+            users = new List<UserDTO>();
         }
         
 
         public void AddUser(IUser user)
         {
-            var newUser = new UserModel()
+            var newUser = new UserDTO()
             {
                 username = user.username,
                 password = user.password,

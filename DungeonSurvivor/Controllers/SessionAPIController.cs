@@ -11,9 +11,9 @@ namespace DungeonSurvivor.Controllers
 {
 
 
-    [Route("api/[controller]")]
+    [Route("api/Session")]
     [ApiController]
-    public class SessionController : ControllerBase
+    public class SessionAPIController : ControllerBase
     {
         // GET: api/Session
         [HttpGet]

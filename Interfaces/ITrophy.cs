@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Interfaces
+﻿namespace Interfaces
 {
-    interface ITrophy
+    public interface ITrophy
     {
         string name { get; set; }
         string description { get; set; }

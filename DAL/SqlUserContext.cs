@@ -24,13 +24,13 @@ namespace DAL
         public IEnumerable<IUser> GetAllUsers()
         {
             var query = $"SELECT * FROM user";
-            return wrapper.query(query).ConvertTable<UserModel>();
+            return wrapper.query(query).ConvertTable<UserDTO>();
         }
 
         public IUser GetUserByCredentials(string username, string password)
         {
             var query = $"SELECT * FROM user WHERE username = '{username}' AND password = '{password}';";
-            var result = wrapper.query(query).ConvertTable<UserModel>();
+            var result = wrapper.query(query).ConvertTable<UserDTO>();
 
             if(result.Count == 1)
             {
@@ -44,7 +44,7 @@ namespace DAL
         {
             var query = $"SELECT * FROM user WHERE id = {id};";
 
-            var result = wrapper.query(query).ConvertTable<UserModel>();
+            var result = wrapper.query(query).ConvertTable<UserDTO>();
 
             if (result.Count == 1)
             {
