@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Interfaces;
 using System.Linq;
+using DAL;
+using Tests.Dto;
 
-namespace DAL
+
+namespace Tests
 {
     public class MemoryUserContext : IUserContext
     {
@@ -17,24 +20,22 @@ namespace DAL
 
         public void AddUser(IUser user)
         {
+            var id = users.Count() > 0 ? users.Max(u => u.id) + 1 : 1;
+
+
             var newUser = new UserDTO()
             {
                 username = user.username,
                 password = user.password,
-                id = users.Max(u => u.id) + 1
+                id = id
             };
 
             users.Add(newUser);
         }
 
-        public IEnumerable<IUser> GetAllUsers()
+        public IUser CheckCredentials(string username, string password)
         {
-            return users;
-        }
-
-        public IUser GetUserByCredentials(string username, string password)
-        {
-            if(users.Exists(u => u.username == username && u.password == password))
+            if (users.Exists(u => u.username == username && u.password == password))
             {
                 return users.Find(u => u.username == username && u.password == password);
             }
@@ -42,8 +43,13 @@ namespace DAL
             {
                 return null;
             }
-           
         }
+
+        public IEnumerable<IUser> GetAllUsers()
+        {
+            return users;
+        }
+
 
         public IUser GetUserById(int id)
         {
@@ -58,16 +64,25 @@ namespace DAL
             }
         }
 
-        public void RemoveUser(IUser user)
+        public int? GetUserId(string username)
         {
-            if (users.Exists(u => u.username == user.username && u.password == user.password))
+            if (users.Exists(u => u.username == username))
             {
-                users.Remove(users.Find(u => u.username == user.username && u.password == user.password));
+                return users.Single(u => u.username == username).id;
             }
             else
             {
-                throw new Exception("user doesn't exist");
+                return null;
             }
         }
+
+        public void RemoveUser(string username)
+        {
+            if (users.Exists(u => u.username == username))
+            {
+                users.Remove(users.Single(u => u.username == username));
+            }
+        }
+
     }
 }

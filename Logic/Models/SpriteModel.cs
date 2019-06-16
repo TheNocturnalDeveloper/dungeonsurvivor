@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Interfaces;
+﻿using Interfaces;
 
 namespace Logic
 {
-    class SpriteModel : ISprite
+    internal class SpriteModel : ISprite
     {
         public string name { get; set; }
         public string path { get; set; }

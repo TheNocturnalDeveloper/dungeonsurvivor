@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Interfaces;
+﻿using Interfaces;
 
 namespace Logic
 {
-    class TrophyModel : ITrophy
+    internal class TrophyModel : ITrophy
     {
         public string name { get; set; }
         public string description { get; set; }

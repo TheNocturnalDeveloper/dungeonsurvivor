@@ -18,12 +18,13 @@ namespace Logic
 
         public void addUser(string username, string password)
         {
-            throw new NotImplementedException("add user has not been implemented yet");
+            var user = new UserModel { username = username, password = password };
+            context.AddUser(user);
         }
 
-        public void removeUser(IUser user)
+        public void removeUser(string username)
         {
-            context.RemoveUser(user);
+            context.RemoveUser(username);
         }
 
 
@@ -33,11 +34,21 @@ namespace Logic
         }
 
 
-        public IUser getUserByCredentials(string username, string password)
+        public IUser CheckCredentials(string username, string password)
         {
-            return context.GetUserByCredentials(username, password);
+            return context.CheckCredentials(username, password);
         }
 
+        public int? GetUserId(string username)
+        {
+            return context.GetUserId(username);
+        }
 
+        public IUser GetUserById(int id)
+        {
+           var result = context.GetUserById(id);
+
+           return result == null ? null : new UserModel { username = result.username, password = result.username };
+        }
     }
 }

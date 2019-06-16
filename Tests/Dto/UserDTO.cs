@@ -1,17 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using Interfaces;
 
-namespace DAL.DTO
+namespace Tests.Dto
 {
     internal class UserDTO : IUser
     {
-        [TableField]
-        public int id { get; set; }
-
-        [TableField]
+        public int id {get; set;}
         public string username { get; set; }
-
-        [TableField]
         public string password { get; set; }
 
     }

@@ -6,7 +6,7 @@ using Interfaces;
 
 namespace DAL
 {
-    interface ISpriteContext
+    public interface ISpriteContext
     {
         IEnumerable<ISprite> getSpritesByUsername(string username);
         void unlockSprite(string username, string spriteName);

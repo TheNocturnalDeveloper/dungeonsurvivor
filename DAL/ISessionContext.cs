@@ -5,7 +5,7 @@ using Interfaces;
 
 namespace DAL
 {
-    interface ISessionContext
+    public interface ISessionContext
     {
         IEnumerable<ISession> getLeaderboard(DateTime minDate);
         void addSession(ISession session);

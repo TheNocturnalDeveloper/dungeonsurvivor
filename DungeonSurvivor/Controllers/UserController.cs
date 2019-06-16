@@ -35,7 +35,7 @@ namespace DungeonSurvivor.Controllers
         [Route("Login")]
         public IActionResult Login()
         {
-            return View("login");
+            return View();
         }
 
         [HttpPost]
@@ -43,7 +43,7 @@ namespace DungeonSurvivor.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login(LoginModel user)
         {
-            var authUser = logic.getUserByCredentials(user.username, user.password);
+            var authUser = logic.CheckCredentials(user.username, user.password);
 
             if (authUser != null)
             {
@@ -101,7 +101,24 @@ namespace DungeonSurvivor.Controllers
             return RedirectToAction(controllerName: "Home", actionName: "Index");
         }
 
-        //12
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("Register")]
+        public IActionResult Register(RegisterModel user)
+        {
+            logic.addUser(user.username, user.password);
+
+            return null; 
+        }
+
+
+
+        [HttpGet]
+        [Route("Register")]
+        public IActionResult Register()
+        {
+            return View();
+        } 
 
 
         //// GET: User/Create

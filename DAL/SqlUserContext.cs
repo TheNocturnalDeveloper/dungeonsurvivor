@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Interfaces;
 using System.Linq;
+using DAL.DTO;
 
 namespace DAL
 {
@@ -27,7 +28,7 @@ namespace DAL
             return wrapper.query(query).ConvertTable<UserDTO>();
         }
 
-        public IUser GetUserByCredentials(string username, string password)
+        public IUser CheckCredentials(string username, string password)
         {
             var query = $"SELECT * FROM user WHERE username = '{username}' AND password = '{password}';";
             var result = wrapper.query(query).ConvertTable<UserDTO>();
@@ -54,12 +55,30 @@ namespace DAL
             return null;
         }
 
-        public void RemoveUser(IUser user)
+        public void RemoveUser(string username)
         {
-            var query = $"DELETE FROM user WHERE username = {user.username};";
+            var query = $"DELETE FROM user WHERE username = {username};";
 
             wrapper.query(query);
  
         }
+
+
+        public int? GetUserId(string username)
+        {
+            var query = $"SELECT * FROM user WHERE username = '{username}';";
+
+            var result = wrapper.query(query).ConvertTable<UserDTO>();
+
+            if (result.Count == 1)
+            {
+                return result.First().id;
+            }
+
+            return null;
+        }
+
+       
+
     }
 }

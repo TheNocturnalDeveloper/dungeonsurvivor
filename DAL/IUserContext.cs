@@ -9,15 +9,14 @@ namespace DAL
     {
         IUser GetUserById(int id);
 
+        int? GetUserId(string username);
+
         IEnumerable<IUser> GetAllUsers();
 
         void AddUser(IUser user);
 
-        void RemoveUser(IUser user);
+        void RemoveUser(string username);
 
-        IUser GetUserByCredentials(string username, string password);
+        IUser CheckCredentials(string username, string password);
     }
 }
-
-
-//var users = wrapper.query("").convertToTable<User>();

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Interfaces;
+﻿using Interfaces;
+using System;
 
 namespace Logic
 {
-    class SessionModel : ISession
+    internal class SessionModel : ISession
     {
         public int rooms { get; set; }
         public int stepRatio { get; set; }
