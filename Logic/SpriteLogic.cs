@@ -5,7 +5,7 @@ using DAL;
 
 namespace Logic
 {
-    class SpriteLogic
+    public class SpriteLogic
     {
         private ISpriteContext context;
 
