@@ -18,8 +18,15 @@ namespace DAL
 
         public void AddUser(IUser user)
         {
-            var query = $"CALL add_user({user.username}, {user.password});";
-            wrapper.query(query);
+            try
+            {
+                var query = $"CALL create_user('{user.username}', '{user.password}');";
+                wrapper.query(query);
+            }
+            catch
+            {
+                throw new Exception("database error");
+            }
         }
 
         public IEnumerable<IUser> GetAllUsers()

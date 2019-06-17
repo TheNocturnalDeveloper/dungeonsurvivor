@@ -18,8 +18,10 @@ namespace Logic
 
         public void addUser(string username, string password)
         {
+
             var user = new UserModel { username = username, password = password };
             context.AddUser(user);
+           
         }
 
         public void removeUser(string username)

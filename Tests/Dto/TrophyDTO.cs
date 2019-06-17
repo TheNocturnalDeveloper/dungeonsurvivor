@@ -5,10 +5,10 @@ using Interfaces;
 
 namespace Tests.Dto
 {
-    internal class SpriteDTO : ISprite
+    class TrophyDTO : ITrophy
     {
         public string name { get; set; }
-        public string path { get; set; }
+        public string description { get; set; }
         public int price { get; set; }
     }
 }

@@ -40,115 +40,120 @@
                 <li class="nav-item">
                     @if (Context.User.Identity.IsAuthenticated)
                     {
-                        <a class="nav-link text-dark" asp-action="Logout" asp-controller="User">logout</a>
+                    <li class="nav-item"><a class="nav-link text-dark" asp-action="Logout" asp-controller="User">logout</a> </li>
 
-                    }
-                    else
-                    {
+                }
+                else
+                {
+                    <li class="nav-item">
                         <a class="nav-link text-dark" asp-action="Login" asp-controller="User">login</a>
-                    }
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="Register" asp-controller="User">register</a>
+                    </li>
+                }
 
-                    
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <partial name="_CookieConsentPartial" />
 
-    <section class="container-fluid flex-grow-1 ">
-        <div class="min-h-0">
-            @RenderBody()
-        </div>
-    </section>
 
-    <footer class="bg-dark text-white mt-4">
-        <div class="container-fluid py-3">
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Footer</h5>
+                </ul>
+            </div>
+        </nav>
+        <partial name="_CookieConsentPartial" />
+
+        <section class="container-fluid flex-grow-1 ">
+            <div class="min-h-0">
+                @RenderBody()
+            </div>
+        </section>
+
+        <footer class="bg-dark text-white mt-4">
+            <div class="container-fluid py-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Footer</h5>
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div>
                 </div>
-                <div class="col-md-3"></div>
-                <div class="col-md-3"></div>
-                <div class="col-md-3"></div>
+                <div class="row">
+                    <div class="col-md-6">I stay at the bottom of the viewport! <span class="small"><br>Unless the page content pushes me further.</span></div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3 text-right small align-self-end">&copy; 2019 - DungeonSurvivor -</div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">I stay at the bottom of the viewport! <span class="small"><br>Unless the page content pushes me further.</span></div>
-                <div class="col-md-3"></div>
-                <div class="col-md-3 text-right small align-self-end">&copy; 2019 - DungeonSurvivor -</div>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
 
-    @*<div class="container">
+        @*<div class="container">
+                <partial name="_CookieConsentPartial" />
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>*@
+
+
+
+        @*<header class="container-fluid text-muted p-0">
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DungeonSurvivor</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </header>
             <partial name="_CookieConsentPartial" />
-            <main role="main" class="pb-3">
+            <main class="container-fluid bg-light flex-grow-1">
                 @RenderBody()
             </main>
-        </div>*@
 
 
-
-    @*<header class="container-fluid text-muted p-0">
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
-
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DungeonSurvivor</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+            <footer class="container-fluid text-muted">
+                <div class="navbar row align-items-center border-top navbar-light bg-light border-0">
+                    <div class="col-md-auto"></div>
+                    <div class="col-*-auto footer-content">
+                        <span>&copy; 2019 - DungeonSurvivor - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
+                    </div>
+                    <div class="col-md-auto"></div>
                 </div>
 
-            </nav>
-        </header>
-        <partial name="_CookieConsentPartial" />
-        <main class="container-fluid bg-light flex-grow-1">
-            @RenderBody()
-        </main>
-
-
-        <footer class="container-fluid text-muted">
-            <div class="navbar row align-items-center border-top navbar-light bg-light border-0">
-                <div class="col-md-auto"></div>
-                <div class="col-*-auto footer-content">
-                    <span>&copy; 2019 - DungeonSurvivor - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
-                </div>
-                <div class="col-md-auto"></div>
-            </div>
-
-        </footer>*@
+            </footer>*@
 
 
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
-        </script>
-    </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <environment include="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+            </script>
+        </environment>
+        <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @RenderSection("Scripts", required: false)
-</body>
+        @RenderSection("Scripts", required: false)
+    </body>
 </html>

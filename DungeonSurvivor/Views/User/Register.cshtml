@@ -1,0 +1,32 @@
+﻿@model DungeonSurvivor.Models.RegisterModel
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-sm-12 col-md-4">
+        <h1>register</h1>
+        <hr />
+        <form asp-action="View">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="username" class="control-label"></label>
+                <input asp-for="username" class="form-control" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="register" class="btn btn-primary" />
+            </div>
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
