@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Interfaces;
 using System.Linq;
-using DAL.DTO;
+using DAL.Dtos;
 
 namespace DAL
 {

@@ -31,14 +31,24 @@ namespace Tests.Contexts
             sprites.Add(entry);
         }
 
+        public bool canBuySprite(string username, string spriteName)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<ISprite> getAllSprites()
         {
             return sprites;
         }
 
+        public ISprite getSpriteByName(string spriteName)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<ISprite> getSpritesByUsername(string username)
         {
-          if()
+            throw new NotImplementedException();
         }
 
 

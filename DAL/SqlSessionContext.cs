@@ -17,7 +17,7 @@ namespace DAL
 
         public void addSession(ISession session)
         {
-            var query = $"CALL add_user(, );";
+            var query = $"CALL add_session('{session.username}', '{session.rooms}', '{session.stepRatio}', '{session.date.ToString("yyyy-mm-dd")}');";
             wrapper.query(query);
         }
 

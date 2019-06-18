@@ -1,7 +1,7 @@
 ﻿using System;
 using Interfaces;
 
-namespace DAL.DTO
+namespace DAL.Dtos
 {
     internal class UserDTO : IUser
     {
@@ -14,5 +14,8 @@ namespace DAL.DTO
         [TableField]
         public string password { get; set; }
 
+
+        [TableField]
+        public int points { get; set; }
     }
 }

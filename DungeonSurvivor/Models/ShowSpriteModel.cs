@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 
 namespace DungeonSurvivor.Models
 {
-    public class AddSpriteViewModel
+    public class ShowSpriteModel
     {
-
         [Required]
         public string name { get; set; }
 
@@ -17,8 +15,8 @@ namespace DungeonSurvivor.Models
         [DataType(DataType.Currency)]
         public int price { get; set; }
 
-
         [Required]
-        public IFormFile image { get; set; }
+        [DataType(DataType.ImageUrl)]
+        public string path { get; set; }
     }
 }
