@@ -15,6 +15,7 @@ namespace Tests.Contexts
         public MemorySessionContext()
         {
             sessions = new List<SessionDTO>();
+            sessions.Add( new SessionDTO { username = "karel", rooms = 4, stepratio = 1, date = DateTime.Now.AddDays(-10) });
         }
 
         public void addSession(ISession session)

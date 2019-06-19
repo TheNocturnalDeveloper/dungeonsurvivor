@@ -46,5 +46,10 @@ namespace Logic
         {
             return context.canBuySprite(username, spritename);
         }
+
+        public bool hasSprite(string username, string spriteName)
+        {
+            return context.hasSprite(username, spriteName);
+        }
     }
 }

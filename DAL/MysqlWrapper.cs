@@ -1,7 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using MySql.Data.MySqlClient;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
@@ -35,7 +34,7 @@ namespace DAL
             con = new MySqlConnection(connectionString);
         }
 
-        public Table query(string a_query)
+        public Table query(MySqlCommand command)
         {
             /*
              * the query function (this function will be used to execute queries)
@@ -45,15 +44,12 @@ namespace DAL
             //this variable will be used to return the results of the query that was executed
             Table m_result = new Table();
 
-            //this variable is used to execute queries (it needs a query and a connection)
-            MySqlCommand m_cmd = new MySqlCommand(a_query, con);
-
             //the connection is opened (if it was closed)
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
 
             //this variable will be used to read the results of the query that was executed
-            MySqlDataReader m_reader = m_cmd.ExecuteReader();
+            MySqlDataReader m_reader = command.ExecuteReader();
 
             //this is a string array that will hold all of the column names
             string[] m_columns = Enumerable.Range(0, m_reader.FieldCount).Select(m_reader.GetName).ToArray();
@@ -86,6 +82,19 @@ namespace DAL
 
             //the object with all the records is used as the return value
             return m_result;
+        }
+
+        public Table query(string a_query)
+        {
+
+
+
+            //this variable is used to execute queries (it needs a query and a connection)
+            MySqlCommand m_cmd = new MySqlCommand(a_query, con);
+
+            return query(m_cmd);
+
+
         }
 
 
@@ -164,12 +173,12 @@ namespace DAL
                 }
 
 
-                foreach(PropertyInfo property in properties)
+                foreach (PropertyInfo property in properties)
                 {
-                    if(property.IsDefined(typeof(TableField)))
+                    if (property.IsDefined(typeof(TableField)))
                     {
                         var propertyString = record.getFieldByName(property.Name).value;
-                        if(property.PropertyType == typeof(string))
+                        if (property.PropertyType == typeof(string))
                         {
                             property.SetValue(tempT, propertyString);
                         }

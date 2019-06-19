@@ -15,9 +15,9 @@ namespace Logic
             this.context = context;
         }
 
-        public void addSession(string username, int rooms, int stepratio)
+        public void addSession(string username, int rooms, int stepratio, DateTime date)
         {
-            var entry = new SessionModel { username = username, rooms = rooms, stepratio = stepratio };
+            var entry = new SessionModel { username = username, rooms = rooms, stepratio = stepratio, date = date };
             context.addSession(entry);
         }
 

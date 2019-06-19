@@ -70,5 +70,13 @@ namespace DAL
 
             return user.points >= sprite.price;
         }
+
+        public bool hasSprite(string username, string spriteName)
+        {
+            var query = $"SELECT * bought_sprite WHERE user_id = (SELECT id from user WHERE username = '{username}') (SELECT price FROM sprite WHERE name = '{spriteName}');";
+            var result = wrapper.query(query);
+
+            return result.Count > 0;
+        }
     }
 }

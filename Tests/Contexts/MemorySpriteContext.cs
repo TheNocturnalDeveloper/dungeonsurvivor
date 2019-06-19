@@ -17,6 +17,7 @@ namespace Tests.Contexts
         public MemorySpriteContext()
         {
             sprites = new List<SpriteDTO>();
+            sprites.Add(new SpriteDTO { name = "idk", path = "idk", price = 2000 });
 
             userSprites = new Dictionary<string, List<SpriteDTO>>();
             userSprites.Add("jake", new List<SpriteDTO>());
