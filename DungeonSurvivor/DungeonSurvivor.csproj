@@ -21,9 +21,8 @@
 
 
   <ItemGroup>
-    <Folder Include="Views\Session\" />
     <Folder Include="Views\Trophy\" />
-    <Folder Include="wwwroot\sprites\" />
+    <Folder Include="wwwroot\spriteFiles\" />
   </ItemGroup>
 
 </Project>

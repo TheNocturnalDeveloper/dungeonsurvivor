@@ -36,7 +36,7 @@ namespace DAL
 
         public void unlockSprite(string username, string spriteName)
         {
-            string query = $"CALL unlock_sprite('{username}', 'spriteName')";
+            string query = $"CALL unlock_sprite('{username}', '{spriteName}')";
             wrapper.query(query);
         }
         

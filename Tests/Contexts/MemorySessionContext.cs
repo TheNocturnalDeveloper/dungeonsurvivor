@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Tests.Contexts
 {
-    class MemorySessionContext : ISessionContext
+    public class MemorySessionContext : ISessionContext
     {
         private List<SessionDTO> sessions;
 
@@ -23,16 +23,16 @@ namespace Tests.Contexts
             var entry = new SessionDTO {
                 date = session.date,
                 rooms = session.rooms,
-                stepRatio = session.stepRatio,
+                stepratio = session.stepratio,
                 username = session.username
             };
 
             sessions.Add(entry);
         }
 
-        public IEnumerable<ISession> getLeaderboard(DateTime minDate)
+        public IEnumerable<ISession> getLeaderboard(DateTime minDate, int count)
         {
-            return sessions.Where(s => s.date > minDate);
+            return sessions.Where(s => s.date > minDate).OrderByDescending(s => s.rooms).Take(count);
         }
     }
 }

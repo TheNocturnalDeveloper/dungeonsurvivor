@@ -18,5 +18,7 @@ namespace DAL
         void RemoveUser(string username);
 
         IUser CheckCredentials(string username, string password);
+
+        string GetRole(string username);
     }
 }

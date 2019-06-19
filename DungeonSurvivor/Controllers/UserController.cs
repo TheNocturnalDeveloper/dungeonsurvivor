@@ -59,6 +59,7 @@ namespace DungeonSurvivor.Controllers
                 {
 
                     new Claim("username", authUser.username),
+                    new Claim(ClaimTypes.Role, logic.GetRole(authUser.username))
 
                     /*new Claim(ClaimTypes.Role, "Administrator"),*/
                 };

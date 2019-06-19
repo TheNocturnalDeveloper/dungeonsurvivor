@@ -7,7 +7,7 @@ namespace DAL
 {
     public interface ISessionContext
     {
-        IEnumerable<ISession> getLeaderboard(DateTime minDate);
+        IEnumerable<ISession> getLeaderboard(DateTime minDate, int count);
         void addSession(ISession session);
         
     }

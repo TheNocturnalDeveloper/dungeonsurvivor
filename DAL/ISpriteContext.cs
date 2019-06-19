@@ -14,5 +14,7 @@ namespace DAL
         IEnumerable<ISprite> getAllSprites();
         ISprite getSpriteByName(string spriteName);
         bool canBuySprite(string username, string spriteName);
+
+        bool hasSprite(string username, string spriteName);
     }
 }

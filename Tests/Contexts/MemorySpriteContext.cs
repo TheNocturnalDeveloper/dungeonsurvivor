@@ -8,15 +8,26 @@ using System.Linq;
 
 namespace Tests.Contexts
 {
-    class MemorySpriteContext : ISpriteContext
+    public class MemorySpriteContext : ISpriteContext
     {
         private List<SpriteDTO> sprites;
         private Dictionary<string, List<SpriteDTO>> userSprites;
+        private List<(UserDTO user, int points)> users;
 
         public MemorySpriteContext()
         {
             sprites = new List<SpriteDTO>();
+
             userSprites = new Dictionary<string, List<SpriteDTO>>();
+            userSprites.Add("jake", new List<SpriteDTO>());
+            
+
+            
+
+            users = new List<(UserDTO user, int points)>
+            {
+                (new UserDTO {username = "jake" }, 1000)
+            };
         }
 
         public void addSprite(ISprite sprite)
@@ -33,7 +44,7 @@ namespace Tests.Contexts
 
         public bool canBuySprite(string username, string spriteName)
         {
-            throw new NotImplementedException();
+            return users.Single(u => u.user.username == username).points >= sprites.Single(s => s.name == spriteName).price;
         }
 
         public IEnumerable<ISprite> getAllSprites()
@@ -43,18 +54,24 @@ namespace Tests.Contexts
 
         public ISprite getSpriteByName(string spriteName)
         {
-            throw new NotImplementedException();
+            return sprites.Single(s => s.name == spriteName);
         }
 
         public IEnumerable<ISprite> getSpritesByUsername(string username)
         {
-            throw new NotImplementedException();
+           return userSprites.GetValueOrDefault(username);
         }
 
+        public bool hasSprite(string username, string spriteName)
+        {
+           var sprites = userSprites.GetValueOrDefault(username);
+
+            return sprites.Exists(s => s.name == spriteName);
+        }
 
         public void unlockSprite(string username, string spriteName)
         {
-            
+            userSprites.GetValueOrDefault(username).Add(sprites.Single(s => s.name == spriteName));
         }
     }
 }

@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace DungeonSurvivor.Models
 {
-    public class LeaderBoardViewModel
+    public class BuySpriteModel
     {
-        public string username { get; set; }
-        public int rooms { get; set; }
-        public int stepRatio { get; set; }
+   
         
+        public string name { get; set; }
+
+      
+     
+        public int price { get; set; }
+
+        public bool unlocked { get; set; }
     }
 }
-    

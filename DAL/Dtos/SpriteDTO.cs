@@ -7,8 +7,13 @@ namespace DAL.Dtos
 {
     class SpriteDTO : ISprite
     {
-        public string name { get; set; }
+        [TableField]
+        public string name { get; set; } 
+
+        [TableField]
         public string path { get; set; }
+
+        [TableField]
         public int price { get; set; }
     }
 }

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DungeonSurvivor.Models.ShowSpriteModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if(this.User.IsInRole("admin")) { 
+
+<div class="row">
+    <a class="btn btn-primary" asp-area="" asp-action="AddSprite" style="margin: 5px; margin-top: 10px;">add sprite</a>
+</div>
+}
+
+<div class="row">
+    @foreach (var sprite in Model)
+    {
+        <div class="card" style="width: 18rem; margin: 5px; margin-top: 10px;">
+            <img class="card-img-top" src="@sprite.path" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@sprite.name</h5>
+                <p class="card-text">@sprite.price points</p>
+                <a  href="sprite/product/@sprite.name" class="btn btn-primary w-100">Details</a>
+            </div>
+        </div>
+    }
+
+</div>

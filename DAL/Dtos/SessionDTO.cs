@@ -7,9 +7,16 @@ namespace DAL.Dtos
 {
     class SessionDTO : ISession
     {
+        [TableField]
         public int rooms { get; set; }
-        public int stepRatio { get; set; }
+
+        [TableField]
+        public int stepratio { get; set; }
+
+ 
         public DateTime date { get; set; }
+
+        [TableField]
         public string username { get; set; }
     }
 }

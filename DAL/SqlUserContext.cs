@@ -85,7 +85,19 @@ namespace DAL
             return null;
         }
 
-       
+       public string GetRole(string username)
+        {
+            var query = $"SELECT name FROM role INNER JOIN user ON user.role_id = role.id WHERE username = '{username}';";
+
+            var result = wrapper.query(query);
+
+            if (result.Count == 1)
+            {
+                return result.First().getFieldByName("name").value;
+            }
+
+            return null;
+        }
 
     }
 }

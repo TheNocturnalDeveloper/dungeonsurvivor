@@ -27,7 +27,9 @@ namespace Tests
             {
                 username = user.username,
                 password = user.password,
-                id = id
+                id = id,
+                role = "normal"
+                
             };
 
             users.Add(newUser);
@@ -81,6 +83,19 @@ namespace Tests
             if (users.Exists(u => u.username == username))
             {
                 users.Remove(users.Single(u => u.username == username));
+            }
+        }
+
+
+        public string GetRole(string username)
+        {
+            if (users.Exists(u => u.username == username))
+            {
+                return users.Single(u => u.username == username).role;
+            }
+            else
+            {
+                return null;
             }
         }
 

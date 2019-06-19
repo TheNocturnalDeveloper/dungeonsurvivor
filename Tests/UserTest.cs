@@ -67,5 +67,13 @@ namespace Tests
             Assert.True(logic.getAllUsers().Count() == 1);
         }
 
+
+        [Fact]
+        public void testGetRole()
+        {
+            logic.addUser("jake", "test");
+            Assert.True(logic.GetRole("jake") == "normal");
+        }
+
     }
 }

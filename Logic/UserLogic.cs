@@ -52,5 +52,10 @@ namespace Logic
 
            return result == null ? null : new UserModel { username = result.username, password = result.username };
         }
+
+        public string GetRole(string username)
+        {
+            return context.GetRole(username);
+        }
     }
 }
